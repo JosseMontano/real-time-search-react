@@ -1,6 +1,6 @@
 import React from "react";
-import {User} from '../interfaces/user'
-const Data = (v:User) => {
+import { User } from "../interfaces/user";
+const Data = (v: User) => {
   return (
     <>
       <h2>{v.email}</h2>

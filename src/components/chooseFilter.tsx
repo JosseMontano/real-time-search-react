@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface Params {
   handleChooseFilter: (input: string) => void;
@@ -6,18 +6,19 @@ interface Params {
 }
 
 const ChooseFilter = (params: Params) => {
-
+const [select, setSelect] = useState("email")
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     params.handleChooseFilter(e.target.value);
   };
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     params.handleSelect(e.target.value);
+    setSelect(e.target.value)
   };
 
   return (
     <div>
-      <input type="text" onChange={handleOnChange} />
+      <input type="text" onChange={handleOnChange} placeholder={`search by ${select}`} />
       <select onChange={handleSelect}>
         <option value="email">email</option>
         <option value="user">user</option>
